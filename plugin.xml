@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="com.plugin.launchconfigs.launching.LaunchConfigurationDelegate"
+            id="com.plugin.launchconfigs.launchConfigurationType"
+            modes="run, debug"
+            name="Launch Configs ">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            class="com.plugin.launchconfigs.ui.LaunchShortcut"
+            icon="icons/shortcut_icon.png"
+            id="com.plugin.launchconfigs.shortcut"
+            label="Launch Configs Shortcut"
+            modes="run, debug">
+	        <contextualLaunch>
+	            <enablement>
+	                <with
+	                    variable="selection">
+	                    <count
+	                        value="+">
+	                    </count>
+	                </with>
+	            </enablement>
+	        </contextualLaunch>
+      </shortcut>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="com.plugin.launchconfigs.ui.LaunchTabGroup"
+            id="com.plugin.launchconfigs.launchConfigurationTabGroup"
+            type="com.plugin.launchconfigs.launchConfigurationType">
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="com.plugin.launchconfigs.launchConfigurationType"
+            icon="icons/configuration_icon.png"
+            id="com.plugin.launchconfigs.launchConfigurationTypeImage">
+      </launchConfigurationTypeImage>
+   </extension>
+
+</plugin>
