@@ -64,7 +64,7 @@ public class LaunchDialog extends TitleAreaDialog {
 					Image icon = null;
 					ImageDescriptor defaultImageDescriptor = DebugUITools.getDefaultImageDescriptor(configType);
 					if (defaultImageDescriptor != null) {
-						icon = new Image(parent.getDisplay(), defaultImageDescriptor.getImageData());
+						icon = new Image(parent.getDisplay(), defaultImageDescriptor.getImageData(100));
 						typeItem.setImage(icon);
 					}
 
