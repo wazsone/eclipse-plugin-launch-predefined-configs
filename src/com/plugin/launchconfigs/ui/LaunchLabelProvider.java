@@ -2,7 +2,7 @@ package com.plugin.launchconfigs.ui;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.internal.core.groups.GroupLaunchElement;
-import org.eclipse.debug.internal.ui.DebugPluginImages;
+//import org.eclipse.debug.internal.ui.DebugPluginImages;
 import org.eclipse.jface.viewers.BaseLabelProvider;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.swt.graphics.Image;
@@ -28,14 +28,15 @@ public class LaunchLabelProvider extends BaseLabelProvider implements ITableLabe
 				return errorImage;
 			}
 
-			try {
-				String key = el.data.getType().getIdentifier();
-				return DebugPluginImages.getImage(key);
-			} catch (CoreException e) {
-				Image errorImage = PlatformUI.getWorkbench().getSharedImages()
-						.getImage(ISharedImages.IMG_OBJS_ERROR_TSK);
-				return errorImage;
-			}
+// TODO: Find a way get image properly
+//			try {
+//				String key = el.data.getType().getIdentifier();
+//				return DebugPluginImages.getImage(key);
+//			} catch (CoreException e) {
+//				Image errorImage = PlatformUI.getWorkbench().getSharedImages()
+//						.getImage(ISharedImages.IMG_OBJS_ERROR_TSK);
+//				return errorImage;
+//			}
 		}
 		return null;
 	}

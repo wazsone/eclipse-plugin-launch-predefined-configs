@@ -4,7 +4,6 @@ import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchManager;
-import org.eclipse.debug.internal.ui.DebugUIMessages;
 import org.eclipse.debug.ui.DebugUITools;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.layout.GridLayoutFactory;
@@ -17,6 +16,8 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
+
+import com.plugin.launchconfigs.utils.UIConstants;
 
 public class LaunchDialog extends TitleAreaDialog {
 
@@ -41,8 +42,8 @@ public class LaunchDialog extends TitleAreaDialog {
 		Composite comp = (Composite) super.createDialogArea(parent);
 		GridLayoutFactory.fillDefaults().margins(20, 20).applyTo(comp);
 
-		getShell().setText(DebugUIMessages.GroupLaunchConfigurationSelectionDialog_12);
-		setTitle(DebugUIMessages.GroupLaunchConfigurationSelectionDialog_14);
+		getShell().setText(UIConstants.DIALOG_TEXT);
+		setTitle(UIConstants.DIALOG_TITLE);
 
 		ILaunchManager manager = DebugPlugin.getDefault().getLaunchManager();
 		ILaunchConfigurationType[] allTypes = manager.getLaunchConfigurationTypes();

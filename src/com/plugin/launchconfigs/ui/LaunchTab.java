@@ -7,7 +7,6 @@ import java.util.List;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.internal.core.groups.GroupLaunchElement;
-import org.eclipse.debug.internal.ui.DebugUIMessages;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
@@ -26,6 +25,7 @@ import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
 
 import com.plugin.launchconfigs.launching.LaunchConfigurationDelegate;
+import com.plugin.launchconfigs.utils.UIConstants;
 
 public class LaunchTab extends AbstractLaunchConfigurationTab {
 
@@ -59,8 +59,8 @@ public class LaunchTab extends AbstractLaunchConfigurationTab {
 		table.setHeaderVisible(true);
 		table.setLayoutData(new GridData(GridData.FILL_BOTH));
 		TreeColumn column = new TreeColumn(table, SWT.NONE);
-		column.setText(DebugUIMessages.GroupLaunchConfigurationTabGroup_6);
-		column.setWidth(500);
+		column.setText(UIConstants.LAUNCH_TAB_CONFIGS_COLUMN_TITLE);
+		column.setWidth(UIConstants.LAUNCH_TAB_CONFIGS_COLUMN_WIDTH);
 
 		treeViewer.setInput(input);
 		final ButtonsPanel btns_panel = new ButtonsPanel(comp, SWT.NONE) {

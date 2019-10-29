@@ -3,14 +3,16 @@
  */
 package com.plugin.launchconfigs.ui;
 
-import org.eclipse.debug.internal.ui.DebugUIMessages;
-import org.eclipse.debug.internal.ui.SWTFactory;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Widget;
+
+import com.plugin.launchconfigs.utils.UIConstants;
 
 public abstract class ButtonsPanel extends Composite implements SelectionListener {
 
@@ -22,14 +24,21 @@ public abstract class ButtonsPanel extends Composite implements SelectionListene
 	public ButtonsPanel(Composite parent, int style) {
 		super(parent, style);
 		setLayout(new GridLayout());
-		upButton = createPushButton(this, DebugUIMessages.GroupLaunchConfigurationTabGroup_1);
-		downButton = createPushButton(this, DebugUIMessages.GroupLaunchConfigurationTabGroup_2);
-		addButton = createPushButton(this, DebugUIMessages.GroupLaunchConfigurationTabGroup_4);
-		deleteButton = createPushButton(this, DebugUIMessages.GroupLaunchConfigurationTabGroup_5);
+		upButton = createPushButton(this, UIConstants.UP_BUTTON_TEXT);
+		downButton = createPushButton(this, UIConstants.DOWN_BUTTON_TEXT);
+		addButton = createPushButton(this, UIConstants.ADD_BUTTON_TEXT);
+		deleteButton = createPushButton(this, UIConstants.DELETE_BUTTON_TEXT);
 	}
 
 	protected Button createPushButton(Composite parent, String key) {
-		Button button = SWTFactory.createPushButton(parent, key, null);
+		Button button = new Button(parent, SWT.PUSH);
+		button.setFont(parent.getFont());
+		if (key != null) {
+			button.setText(key);
+		}
+		GridData gd = new GridData();
+		gd.horizontalAlignment = GridData.FILL;
+		button.setLayoutData(gd);
 		button.addSelectionListener(this);
 		return button;
 	}

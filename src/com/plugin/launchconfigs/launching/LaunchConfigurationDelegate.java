@@ -16,15 +16,13 @@ import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.ILaunchManager;
 import org.eclipse.debug.core.IStatusHandler;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
-import org.eclipse.debug.internal.core.IInternalDebugCoreConstants;
 import org.eclipse.debug.internal.core.groups.GroupLaunchElement;
 
 public class LaunchConfigurationDelegate implements ILaunchConfigurationDelegate {
 
 	private static final String NAME_ATTR = "name";
 	private static final String ENABLED_ATTR = "enabled";
-	private static final IStatus CONFIGS_CYCLE = new Status(IStatus.ERROR, "org.eclipse.debug.core", 232,
-			IInternalDebugCoreConstants.EMPTY_STRING, null);;
+	private static final IStatus CONFIGS_CYCLE = new Status(IStatus.ERROR, "org.eclipse.debug.core", 232, "", null);;
 
 	public static String formatAttributes(int index, String string) {
 		return LaunchConfigsUIPlugin.getPluginId() + "." + index + "." + string; //$NON-NLS-1$ //$NON-NLS-2$
